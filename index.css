@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    width: 70%;
+    margin: auto;
+}
+
+.header {
+    padding: 45px 0px 45px 45px;
+    /* border: 1px solid red; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0px;
+}
+
+.mainContainer {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* gap: 30px; */
+    padding: 45px;
+
+}
+
+.itemBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    padding: 45px 0px;
+}
+
+.addBtn {
+    margin-left: auto;
+}
+
+.emoji {
+    height: 99px;
+    width: 109px;
+    font-weight: 400;
+    font-size: 78.72px;
+    line-height: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
