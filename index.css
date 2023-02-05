@@ -1,11 +1,11 @@
 body {
     margin: 0;
-    width: 70%;
+    width: 55%;
     margin: auto;
 }
 
 .header {
-    padding: 45px 0px 45px 45px;
+    padding: 10px 0px 10px 45px;
     /* border: 1px solid red; */
 }
 
@@ -30,7 +30,7 @@ h5 {
     flex-direction: row;
     align-items: center;
     gap: 30px;
-    padding: 45px 0px;
+    padding: 10px 0px;
 }
 
 .addBtn {
@@ -46,4 +46,8 @@ h5 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.chosenItemsContainer{
+    display: block;
 }
