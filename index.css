@@ -48,6 +48,6 @@ h5 {
     align-items: center;
 }
 
-.chosenItemsContainer{
-    display: block;
+.orderContainer {
+    display: none;
 }
