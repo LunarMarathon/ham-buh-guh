@@ -3,6 +3,7 @@ import { menuArray } from "./data.js"
 const menuContainer = document.getElementById("menuContainer")
 const chosenItemsContainer = document.getElementById("chosenItemsContainer")
 const orderContainer = document.getElementById("orderContainer")
+const paymentModal = document.getElementById("paymentModal")
 
 let menuString = ""
 let chosenItemsArray = []
@@ -40,7 +41,10 @@ function handleAddClick(e) {
         chosenItemsArray.splice(itemIndex, 1)
         render()
     }
-
+    else if (e.target.id === "compOrder"){
+        alert("complete order")
+        paymentModal.style.display = "block"
+    }
 }
 
 function render() {
@@ -51,10 +55,10 @@ function render() {
         sum += item.price * itemArray.length
         console.log(sum)
         if (itemArray.length)
-            chosenItemsString += `<div>${itemArray.length} ${item.name} <button class="removeBtn" data-remove=${item.name}>remove</button>$${item.price * itemArray.length}</div>`
+            chosenItemsString += `<div class="cartItem">${itemArray.length} ${item.name} <button class="removeBtn" data-remove=${item.name}>remove</button><span class="span-left">$${item.price * itemArray.length}</span></div>`
     }
-    chosenItemsContainer.innerHTML = chosenItemsString + `<div>Total: $${sum}</div>`
-    
+    chosenItemsContainer.innerHTML = chosenItemsString + `<hr><div class="cartItem">Total price: <span class="span-left">$${sum}</span></div><button class="textBtn" id="compOrder">Complete order</button>`
+
     if (!sum)
         orderContainer.style.display = "none"
 }
