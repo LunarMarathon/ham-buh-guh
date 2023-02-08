@@ -21,20 +21,24 @@
         <div class="orderContainer" id="orderContainer">
             <h3>Your order</h3>
             <div class="chosenItemsContainer" id="chosenItemsContainer">
-
             </div>
         </div>
+        <div id="paymentAck" class="paymentAck"></div>
     </div>
 
     <div class="paymentModal" id="paymentModal">
+        <button class="closeBtn" id="closeBtn">X</button>
         <h2>Enter card details</h2>
-        <div class="modalFlex">
-            <input type="text" placeholder="Enter your name" name="" />
-            <input type="text" placeholder="Enter card number" name="" />
-            <input type="text" placeholder="Enter CVV" name="" />
-            <button class="textBtn">Pay</button>
-        </div>
+        <form id="paymentForm">
+            <div class="modalFlex">
+                <input type="text" placeholder="Enter your name" required name="name" />
+                <input type="number" placeholder="Enter card number" required name="" />
+                <input type="number" placeholder="Enter CVV" required name="" />
+                <button class="textBtn" id="payBtn">Pay</button>
+            </div>
+        </form>
     </div>
+
 
     <!-- script tag -->
     <script src="index.js" type="module"></script>

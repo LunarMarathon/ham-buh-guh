@@ -4,11 +4,14 @@ const menuContainer = document.getElementById("menuContainer")
 const chosenItemsContainer = document.getElementById("chosenItemsContainer")
 const orderContainer = document.getElementById("orderContainer")
 const paymentModal = document.getElementById("paymentModal")
+const paymentForm = document.getElementById("paymentForm")
+const paymentAck = document.getElementById("paymentAck")
 
 let menuString = ""
 let chosenItemsArray = []
 let chosenItemsString = ""
 let sum = 0
+let username = ""
 
 for (let item of menuArray) {
     menuString += `
@@ -42,8 +45,23 @@ function handleAddClick(e) {
         render()
     }
     else if (e.target.id === "compOrder"){
-        alert("complete order")
+        // alert("complete order")
         paymentModal.style.display = "block"
+    }
+    else if (e.target.id === "payBtn"){
+        // alert("Payment modal")
+        e.preventDefault()
+        const paymentFormData = new FormData(paymentForm)
+        username = paymentFormData.get("name")
+        // alert(username)
+        paymentModal.style.display = "none"
+        orderContainer.style.display = "none"
+        paymentAck.style.display = "block"
+        paymentAck.textContent = `Thanks, ${username}! Your order is on its way!`
+    }
+    else if (e.target.id === "closeBtn"){
+        // alert("Close button")
+        paymentModal.style.display = "none"
     }
 }
 
