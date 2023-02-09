@@ -30,6 +30,7 @@ for (let item of menuArray) {
 menuContainer.innerHTML = menuString
 
 document.addEventListener("click", handleAddClick)
+paymentForm.addEventListener("submit", handleSumbit)
 
 function handleAddClick(e) {
     if (e.target.dataset.add) {
@@ -44,25 +45,27 @@ function handleAddClick(e) {
         chosenItemsArray.splice(itemIndex, 1)
         render()
     }
-    else if (e.target.id === "compOrder"){
+    else if (e.target.id === "compOrder") {
         // alert("complete order")
         paymentModal.style.display = "block"
     }
-    else if (e.target.id === "payBtn"){
-        // alert("Payment modal")
-        e.preventDefault()
-        const paymentFormData = new FormData(paymentForm)
-        username = paymentFormData.get("name")
-        // alert(username)
-        paymentModal.style.display = "none"
-        orderContainer.style.display = "none"
-        paymentAck.style.display = "block"
-        paymentAck.textContent = `Thanks, ${username}! Your order is on its way!`
-    }
-    else if (e.target.id === "closeBtn"){
+
+    else if (e.target.id === "closeBtn") {
         // alert("Close button")
         paymentModal.style.display = "none"
     }
+}
+
+function handleSumbit(e) {
+    // alert("Payment modal")
+    e.preventDefault()
+    const paymentFormData = new FormData(paymentForm)
+    username = paymentFormData.get("name")
+    // alert(username)
+    paymentModal.style.display = "none"
+    orderContainer.style.display = "none"
+    paymentAck.style.display = "block"
+    paymentAck.textContent = `Thanks, ${username}! Your order is on its way!`
 }
 
 function render() {
